@@ -12,7 +12,7 @@ import bcrypt from 'bcrypt';
 // email 
 import mailgun from 'mailgun-js';
 
-import { signAccessToken} from '../Middlewares/auth.js';
+import { signAccessToken} from '../middlewares/auth.js';
 
 
 
@@ -92,7 +92,7 @@ export async function signup(req, res) {
             email: req.body.email,
             role: req.body.role,
            // datedenaissance: req.body.datedenaissance,
-            password: await bcrypt.hash(req.body.password,10),
+            password:   await bcrypt.hash(req.body.password,10),
             // Récupérer l'URL de l'image pour l'insérer dans la BD
             //image: `${req.protocol}://${req.get('host')}/img/${req.file.filename}`,
             

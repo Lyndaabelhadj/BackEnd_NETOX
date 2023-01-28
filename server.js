@@ -12,7 +12,7 @@ const app = express();
 const port = process.env.PORT || 9091;
 const database = 'Netox'
 
-mongoose.connect(`mongodb://localhost:27017/${database}`)
+mongoose.connect(`mongodb+srv://linda:K1HQf7lEJCRYAmGQ@cluster0.cvgs4cq.mongodb.net/netox`)
     .then(() => console.log("DB connection established"))
     .catch((error) => console.log(error));
 
