@@ -33,11 +33,29 @@ const userSchema = new Schema(
         resetLink: {
             data: String,
             default: ''
-        }
+        },
+        codeForget: {
+            type: String,
+            required: false,
+          },
+        codeVerif: {
+            type: String,
+            required: false,
+          },
+        verified: {
+            type: String,
+            required: false,
+          },
+          score: {
+            type: Number,
+            required: false,
+            default: 0
+          },
     },
         {
         timestamps:true
         }
+
 )
 
 export default model("User", userSchema);

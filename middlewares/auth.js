@@ -22,3 +22,19 @@ export function  signAccessToken (userId) {
         })
       })
     }
+
+
+    export default function auth(req, res, next) {
+      try {
+        const token = req.headers.authorization.split(" ")[1];
+        const decodedToken = jwt.verify(token, "verySecretValue");
+        const userId = decodedToken._id;
+        console.log(decodedToken);
+        req.auth = {
+          userId: userId,
+        };
+        next();
+      } catch (error) {
+        res.status(401).json({ error });
+      }
+    }

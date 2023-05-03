@@ -6,18 +6,19 @@ import { errorHandler, notFoundError } from './middlewares/error-handler.js'
 import userRoutes from './routes/user.js';
 import articleRoutes from './routes/article.js';
 import rdvRoutes from './routes/rdv.js';
+import questionRoutes from './routes/Question.routes.js';
 
 
 const app = express();
-const port = process.env.PORT || 9091;
+const port = process.env.PORT || 9095;
 const database = 'Netox'
 
-mongoose.connect(`mongodb+srv://linda:K1HQf7lEJCRYAmGQ@cluster0.cvgs4cq.mongodb.net/netox`)
+//mongoose.connect(`mongodb+srv://linda:K1HQf7lEJCRYAmGQ@cluster0.cvgs4cq.mongodb.net/netox`)
+mongoose.connect(`mongodb://localhost:27017/Netox`)
     .then(() => console.log("DB connection established"))
     .catch((error) => console.log(error));
 
 mongoose.set('debug', true);
-mongoose.Promise = global.Promise;
 
 app.use(cors());
 app.use(morgan("dev")); //Utiliser morgan
@@ -43,6 +44,7 @@ app.use("/gse", (req, ers, next) => {
 app.use('/user', userRoutes); // Utiliser les routes cr��s
 app.use('/article', articleRoutes);
 app.use('/rdv', rdvRoutes);
+app.use('/Question', questionRoutes);
 
 
 // Utiliser le middleware de routes introuvables

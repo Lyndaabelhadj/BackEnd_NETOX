@@ -7,6 +7,18 @@ const questionSchema = new Schema(
         contenu: {
             type: String,
             required: true,
+         },
+         choix1: {
+            type: Number,
+            required: true,
+         },
+         choix2: {
+            type: Number,
+            required: true,
+         },
+         choix3: {
+            type: Number,
+            required: true,
          }
     
     }

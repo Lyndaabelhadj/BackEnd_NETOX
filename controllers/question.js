@@ -27,9 +27,10 @@ export function AjoutQuestion(req, res) {
      console.log(req.body)
     Question
             .create({
-                title: req.body.title,
-                author: req.body.author,
-                summary: req.body.summary,
+                contenu: req.body.contenu,
+                choix1: req.body.choix1,
+                choix2: req.body.choix2,
+                choix3: req.body.choix3,
 
             })
         .then(newQuestion => {
@@ -38,7 +39,7 @@ export function AjoutQuestion(req, res) {
         })
         .catch(err => {
             res.status(400).json({ error: err });
-            console.log("Error in adding question: ", err);
+         console.log("Error in adding question: ", err);
         });
     
 
@@ -47,7 +48,7 @@ export function AjoutQuestion(req, res) {
 
 
   
-
+/*
 //Affichage d'une seule question
 export function getOnceQuestion(req, res) {
     Question
@@ -60,7 +61,7 @@ export function getOnceQuestion(req, res) {
         });
 }
 
-
+*/
 
 
 

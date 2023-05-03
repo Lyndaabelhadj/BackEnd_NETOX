@@ -7,6 +7,9 @@ import { validationResult } from 'express-validator'
 import rdv from '../models/rdv.js';
 
 
+import { signAccessToken} from '../middlewares/auth.js';
+
+
 //Affichage de tous les articles existants dans la DB (Admin)
 export function getAllRdv(req, res) {
     rdv
